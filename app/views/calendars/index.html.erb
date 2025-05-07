@@ -8,15 +8,17 @@
 
 <div class='calendar'>
   <% @week_days.each do |day| %>
-    <article class='item'>
-      <time class='date'><%= day[:month] %>/<%= day[:date] %></time>
-      <% if day[:plans].any? %>
-        <ul class='content'>
-          <% day[:plans].each do |plan| %>
-            <li class='plan-list'>・<%= plan %></li>
-          <% end %>
-        </ul>
+    <div class='item'>
+      <span class='date'>
+        <%= day[:month] %>/<%= day[:date] %>
+      </span>
+      <ul class='content'>
+      <% if day[:plans].length != 0 %>
+        <% day[:plans].each do |plan| %>
+          <li class='plan-list'>・<%= plan %></li>
+        <% end %>
       <% end %>
-    </article>
+      </ul>
+    </div>
   <% end %>
 </div>
